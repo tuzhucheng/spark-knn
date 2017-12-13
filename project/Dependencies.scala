@@ -12,7 +12,8 @@ object Dependencies {
 
     object Test {
       val scalatest = "org.scalatest" %% "scalatest" % "2.2.4" % "test"
-      val sparktest = "org.apache.spark" %% "spark-core" % "2.1.0"  % "test" classifier "tests"
+      val sparktest = "org.apache.spark" %% "spark-core" % "2.2.0"  % "test" classifier "tests"
+      val scallop = "org.rogach" %% "scallop" % "3.1.1"
     }
   }
 
@@ -20,6 +21,6 @@ object Dependencies {
   import Test._
   val l = libraryDependencies
 
-  val core = l ++= Seq(scalatest, sparktest)
+  val core = l ++= Seq(scalatest, sparktest, scallop)
   val examples = core +: (l ++= Seq(breeze_natives))
 }
